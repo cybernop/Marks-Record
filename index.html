@@ -6,12 +6,13 @@
     <link href="css/bootstrap.css" rel="stylesheet">
 
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/GuiController.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
 
     <script type="text/javascript" src="js/Module.js"></script>
     <script type="text/javascript" src="js/ModuleController.js"></script>
+    <script type="text/javascript" src="js/GuiController.js"></script>
 </head>
-<body onload="viewController.showModules()">
+<body onload="viewController.init()">
 <div class="container">
 
     <!-- The top menu, navigation, options. -->
@@ -20,10 +21,10 @@
             <a class="navbar-brand" href="#">MARKS</a>
             <ul class="nav navbar-nav">
                 <li id="navRecords">
-                    <a href="#" onclick="viewController.showRecords()">Records</a>
+                    <a href="#" onclick="viewController.show_records()">Records</a>
                 </li>
                 <li id="navCourses">
-                    <a href="#" onclick="viewController.showModules()">Modules</a>
+                    <a href="#" onclick="viewController.show_modules()">Modules</a>
                 </li>
             </ul>
         </div>
@@ -32,19 +33,77 @@
         record
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <td>Module no.</td>
-                    <td>Name of module</td>
-                    <td>Type of certificate</td>
-                    <td>Credit points</td>
-                    <td>Mark</td>
-                </tr>
+            <tr>
+                <td>Module no.</td>
+                <td>Name of module</td>
+                <td>Type of certificate</td>
+                <td>Credit points</td>
+                <td>Mark</td>
+            </tr>
             </thead>
             <tbody id="recordViewTableBody"></tbody>
         </table>
     </div>
     <div id="coursesView" class="container">
         modules
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <td>Module no.</td>
+                <td>Name of module</td>
+                <td>Name (Short)</td>
+                <td>Type of certificate</td>
+                <td>Credit points</td>
+                <td>Mark</td>
+                <td>Actions</td>
+            </tr>
+            </thead>
+            <tbody id="coursesViewTableBody"></tbody>
+        </table>
+    </div>
+    <div id="editModuleView" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Edit Module</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <fieldset>
+                            <div class="form-group">
+                                <label for="numberInputEditModule">Module no.</label>
+                                <input type="text" class="form-control" id="numberInputEditModule" placeholder="Enter module number">
+                            </div>
+                            <div class="form-group">
+                                <label for="nameInputEditModule">Name of module</label>
+                                <input type="text" class="form-control" id="nameInputEditModule" placeholder="Enter name of module">
+                            </div>
+                            <div class="form-group">
+                                <label for="shortNameInputEditModule">Name (Short)</label>
+                                <input type="text" class="form-control" id="shortNameInputEditModule" placeholder="Enter short name of module">
+                            </div>
+                            <div class="form-group">
+                                <label for="typeInputEditModule">Type of certificate</label>
+                                <input type="text" class="form-control" id="typeInputEditModule" placeholder="Enter type of certificate">
+                            </div>
+                            <div class="form-group">
+                                <label for="creditInputEditModule">Module no.</label>
+                                <input type="number" class="form-control" id="creditInputEditModule" placeholder="Enter credit points">
+                            </div>
+                            <div class="form-group">
+                                <label for="markInputEditModule">Module no.</label>
+                                <input type="number" class="form-control" id="markInputEditModule" placeholder="Enter mark">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 </body>

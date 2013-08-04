@@ -6,21 +6,27 @@
  * To change this template use File | Settings | File Templates.
  */
 viewController = {
-    showRecords: function () {
+    modulesController: ModulesController(),
+
+    init: function(){
+        viewController.modulesController.addTestModules();
+        viewController.show_records();
+    },
+
+    show_records: function () {
         viewController.hideAll();
         $("#recordView").show();
         $("#navRecords").addClass("active");
 
-        viewController.updateRecords();
+        viewController.update_records();
     },
 
-    updateRecords: function () {
-        var tableBody = $("#recordViewTableBody"), moduleController = ModulesController();
+    update_records: function () {
+        var tableBody = $("#recordViewTableBody");
         var i, row, module, modules;
 
         tableBody.empty();
-        moduleController.addTestModules();
-        modules = moduleController.getModules();
+        modules = viewController.modulesController.getModules();
 
         for (i = 0; i < modules.length; i++) {
             module = modules[i];
@@ -35,10 +41,38 @@ viewController = {
         }
     },
 
-    showModules: function () {
+    show_modules: function () {
         viewController.hideAll();
         $("#coursesView").show();
         $("#navCourses").addClass("active");
+        viewController.update_modules();
+    },
+
+    update_modules: function () {
+        var tableBody = $("#coursesViewTableBody");
+        var i, row, module, modules;
+
+        tableBody.empty();
+        modules = viewController.modulesController.getModules();
+
+        for (i = 0; i < modules.length; i++) {
+            module = modules[i];
+            row = '<tr>';
+            row += '<td>' + module.getNumber() + '</td>';
+            row += '<td>' + module.getName() + '</td>';
+            row += '<td>' + module.getNameShort() + '</td>';
+            row += '<td>' + module.getType() + '</td>';
+            row += '<td>' + module.getCreditPoints() + '</td>';
+            row += '<td>' + module.getMark() + '</td>';
+            row += '<td>' +
+                '<div class="btn-group">' +
+                '<button type = "button" class = "btn btn-primary" data-toggle="modal" data-target="#editModuleView">Edit</button>' +
+                '<button type = "button" class = "btn btn-default">Delete</button>' +
+                '</div>'
+            '</td>'
+
+            tableBody.append(row);
+        }
     },
 
     hideAll: function () {

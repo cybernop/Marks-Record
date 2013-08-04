@@ -8,7 +8,7 @@
 new Module();
 
 var ModulesController = function () {
-    modules = [];
+    var modules = [];
 
     return {
         addModule: function (module) {
@@ -17,16 +17,16 @@ var ModulesController = function () {
             return this;
         },
 
-        addTestModules: function() {
-            module_one = new Module();
+        addTestModules: function () {
+            var module_one = new Module();
             module_one.fill("CS1234", "Test Module 1", "TM1", "A", 4, 3.3);
             modules.push(module_one);
 
             return this;
         },
 
-        getModules: function(){
+        getModules: function () {
             return modules;
         }
     }
-}
+};
