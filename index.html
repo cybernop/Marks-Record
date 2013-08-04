@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Marks</title>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/GuiController.js"></script>
+
+    <script type="text/javascript" src="js/Module.js"></script>
+    <script type="text/javascript" src="js/ModuleController.js"></script>
+</head>
+<body onload="viewController.showModules()">
+<div class="container">
+
+    <!-- The top menu, navigation, options. -->
+    <div id="menuView" class="container">
+        <div class="navbar">
+            <a class="navbar-brand" href="#">MARKS</a>
+            <ul class="nav navbar-nav">
+                <li id="navRecords">
+                    <a href="#" onclick="viewController.showRecords()">Records</a>
+                </li>
+                <li id="navCourses">
+                    <a href="#" onclick="viewController.showModules()">Modules</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="recordView" class="container">
+        record
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Module no.</td>
+                    <td>Name of module</td>
+                    <td>Type of certificate</td>
+                    <td>Credit points</td>
+                    <td>Mark</td>
+                </tr>
+            </thead>
+            <tbody id="recordViewTableBody"></tbody>
+        </table>
+    </div>
+    <div id="coursesView" class="container">
+        modules
+    </div>
+</div>
+</body>
+</html>
