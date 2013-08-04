@@ -7,26 +7,33 @@
  */
 new Module();
 
-var ModulesController = function () {
-    var modules = [];
+var ModulesController = {
+    modules: [],
 
-    return {
-        addModule: function (module) {
-            modules.push(module);
+    addModule: function (module) {
+        ModulesController.modules.push(module);
 
-            return this;
-        },
+        return this;
+    },
 
-        addTestModules: function () {
-            var module_one = new Module();
-            module_one.fill("CS1234", "Test Module 1", "TM1", "A", 4, 3.3);
-            modules.push(module_one);
+    addTestModules: function () {
+        var module_one = new Module();
+        module_one.fill("CS1234", "Test Module 1", "TM1", "A", 4, 3.3);
+        ModulesController.modules.push(module_one);
 
-            return this;
-        },
+        return this;
+    },
 
-        getModules: function () {
-            return modules;
-        }
+    setEditModule: function (index) {
+        var module = ModulesController.modules[index];
+
+        $("#numberInputEditModule").text(module.getNumber());
+        $("#nameInputEditModule").text(module.getName());
+        $("#shortNameInputEditModule").text(module.getNameShort());
+        $("#typeInputEditModule").text(module.getType());
+        $("#creditInputEditModule").text(module.getCreditPoints());
+        $("#markInputEditModule").text(module.getMark());
+
+        return this;
     }
 };

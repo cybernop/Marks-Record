@@ -6,10 +6,8 @@
  * To change this template use File | Settings | File Templates.
  */
 viewController = {
-    modulesController: ModulesController(),
-
     init: function(){
-        viewController.modulesController.addTestModules();
+        ModulesController.addTestModules();
         viewController.show_records();
     },
 
@@ -26,7 +24,7 @@ viewController = {
         var i, row, module, modules;
 
         tableBody.empty();
-        modules = viewController.modulesController.getModules();
+        modules = ModulesController.modules;
 
         for (i = 0; i < modules.length; i++) {
             module = modules[i];
@@ -53,7 +51,7 @@ viewController = {
         var i, row, module, modules;
 
         tableBody.empty();
-        modules = viewController.modulesController.getModules();
+        modules = ModulesController.modules;
 
         for (i = 0; i < modules.length; i++) {
             module = modules[i];
@@ -66,7 +64,7 @@ viewController = {
             row += '<td>' + module.getMark() + '</td>';
             row += '<td>' +
                 '<div class="btn-group">' +
-                '<button type = "button" class = "btn btn-primary" data-toggle="modal" data-target="#editModuleView">Edit</button>' +
+                '<button type = "button" class = "btn btn-primary edit-module" data-toggle="modal" data-target="#editModuleView" data-moduleIndex="'+i+'">Edit</button>' +
                 '<button type = "button" class = "btn btn-default">Delete</button>' +
                 '</div>'
             '</td>'
@@ -82,7 +80,10 @@ viewController = {
         $("#navRecords").removeClass("active");
         $("#navCourses").removeClass("active");
     }
-
-
 };
 
+$(document).ready(function(){
+    $(document).on("click", ".edit-module", function(){
+                 ModulesController.setEditModule($(this).data("moduleindex"));
+    });
+});

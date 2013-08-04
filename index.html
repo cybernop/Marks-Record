@@ -18,15 +18,23 @@
     <!-- The top menu, navigation, options. -->
     <div id="menuView" class="container">
         <div class="navbar">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
             <a class="navbar-brand" href="#">MARKS</a>
-            <ul class="nav navbar-nav">
-                <li id="navRecords">
-                    <a href="#" onclick="viewController.show_records()">Records</a>
-                </li>
-                <li id="navCourses">
-                    <a href="#" onclick="viewController.show_modules()">Modules</a>
-                </li>
-            </ul>
+
+            <div class="nav-collapse collapse navbar-responsive-collapse">
+                <ul class="nav navbar-nav">
+                    <li id="navRecords">
+                        <a href="#" onclick="viewController.show_records()">Records</a>
+                    </li>
+                    <li id="navCourses">
+                        <a href="#" onclick="viewController.show_modules()">Modules</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
     <div id="recordView" class="container">
@@ -73,27 +81,33 @@
                         <fieldset>
                             <div class="form-group">
                                 <label for="numberInputEditModule">Module no.</label>
-                                <input type="text" class="form-control" id="numberInputEditModule" placeholder="Enter module number">
+                                <input type="text" class="form-control" id="numberInputEditModule"
+                                       placeholder="Enter module number">
                             </div>
                             <div class="form-group">
                                 <label for="nameInputEditModule">Name of module</label>
-                                <input type="text" class="form-control" id="nameInputEditModule" placeholder="Enter name of module">
+                                <input type="text" class="form-control" id="nameInputEditModule"
+                                       placeholder="Enter name of module">
                             </div>
                             <div class="form-group">
                                 <label for="shortNameInputEditModule">Name (Short)</label>
-                                <input type="text" class="form-control" id="shortNameInputEditModule" placeholder="Enter short name of module">
+                                <input type="text" class="form-control" id="shortNameInputEditModule"
+                                       placeholder="Enter short name of module">
                             </div>
                             <div class="form-group">
                                 <label for="typeInputEditModule">Type of certificate</label>
-                                <input type="text" class="form-control" id="typeInputEditModule" placeholder="Enter type of certificate">
+                                <input type="text" class="form-control" id="typeInputEditModule"
+                                       placeholder="Enter type of certificate">
                             </div>
                             <div class="form-group">
-                                <label for="creditInputEditModule">Module no.</label>
-                                <input type="number" class="form-control" id="creditInputEditModule" placeholder="Enter credit points">
+                                <label for="creditInputEditModule">Credit points</label>
+                                <input type="number" class="form-control" id="creditInputEditModule"
+                                       placeholder="Enter credit points">
                             </div>
                             <div class="form-group">
-                                <label for="markInputEditModule">Module no.</label>
-                                <input type="number" class="form-control" id="markInputEditModule" placeholder="Enter mark">
+                                <label for="markInputEditModule">Mark</label>
+                                <input type="number" class="form-control" id="markInputEditModule"
+                                       placeholder="Enter mark">
                             </div>
                         </fieldset>
                     </form>
